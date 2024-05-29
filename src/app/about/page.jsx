@@ -1,40 +1,36 @@
-import React from "react";
-import Image from "next/image";
-import shreya from "../../../public/images/shreya.jpeg";
-import priyanka from "../../../public/images/priyanka.png";
-import supriti from "../../../public/images/supriti.jpeg";
-import amisha from "../../../public/images/amisha.jpeg";
+import React from 'react';
+import Image from 'next/image';
 
 const teamMembers = [
   {
     name: 'Shreya Sen',
     role: 'Lead Developer and Designer',
-    image: shreya,
+    image: '/images/shreya.jpeg',
     linkedin: 'https://www.linkedin.com/in/shreya-sen-150849220/',
   },
   {
     name: 'Priyanka Adhikary',
     role: 'Designer and Helper',
-    image: priyanka,
+    image: '/images/priyanka.png',
     linkedin: 'https://www.linkedin.com/in/priyanka-adhikary-15590525b/',
   },
   {
     name: 'Supriti Chowdhury',
     role: 'Designer and Helper',
-    image: supriti,
+    image: '/images/supriti.jpeg',
     linkedin: 'https://www.linkedin.com/in/supriti-chowdhury-2ab237260/',
   },
   {
     name: 'Amisha Kumari',
     role: 'Designer and Helper',
-    image: amisha,
+    image: '/images/amisha.jpeg',
     linkedin: 'https://www.linkedin.com/in/amisha-k-578431272/',
   },
 ];
 
-function Page() {
+const Page = () => {
   return (
-    <div className="flex flex-col items-center justify-center flex-grow p-10 bg-[#CECAB3]">
+    <div className="flex flex-col items-center justify-center flex-grow p-10 bg-[#CECAB3] min-h-screen">
       <div className="about mb-8 p-10 bg-white rounded shadow-lg w-full max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">About Our Project</h2>
         <p className="text-lg text-gray-800">
@@ -80,7 +76,7 @@ function Page() {
         {teamMembers.map((member, index) => (
           <div key={index} className="flex flex-col items-center justify-center bg-white p-4 rounded shadow-lg">
             <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-              <Image className="rounded-full h-[100px] w-[100px]" src={member.image} alt={`${member.name}`} width={100} height={100} />
+              <Image className="rounded-full h-[100px] w-[100px]" src={member.image} alt={member.name} width={100} height={100} />
             </a>
             <span className="font-semibold text-gray-900">{member.name.split(' ')[0]}</span>
             <span className="text-gray-700">{member.role}</span>
@@ -89,6 +85,6 @@ function Page() {
       </div>
     </div>
   );
-}
+};
 
 export default Page;
